@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import LenisProvider from '@/components/ui/LenisProvider'
+import Preloader from '@/components/ui/Preloader'
 
 export const metadata: Metadata = {
   title: 'Zirith Studio — Motion Design That Converts',
@@ -36,6 +37,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#F5F4F0" />
       </head>
       <body className="noise">
+        <Preloader />
         <LenisProvider>
           {children}
         </LenisProvider>
