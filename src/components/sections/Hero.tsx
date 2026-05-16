@@ -90,14 +90,43 @@ export default function Hero({ onBookingOpen }: HeroProps) {
       />
 
       {/* ── Massive Brand Watermark ─────────────────────────────────────── */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none select-none overflow-hidden mix-blend-multiply">
+      <div 
+        className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none select-none overflow-hidden mix-blend-multiply"
+        style={{
+          WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 40%)',
+          maskImage: 'linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 40%)',
+        }}
+      >
         <motion.h1
-          initial={{ opacity: 0, scale: 0.9, filter: 'blur(20px)' }}
-          animate={{ opacity: 0.09, scale: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
-          className="font-serif text-[28vw] md:text-[22vw] leading-none text-carbon whitespace-nowrap tracking-tighter"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { 
+              opacity: 0.12,
+              transition: { staggerChildren: 0.14, delayChildren: 0.1 }
+            }
+          }}
+          className="font-serif text-[28vw] md:text-[22vw] leading-none text-carbon whitespace-nowrap tracking-tighter flex"
         >
-          ZIRITH
+          {"ZIRITH".split("").map((char, i) => (
+            <motion.span
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: 120, filter: 'blur(20px)', scale: 0.7 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  filter: 'blur(0px)', 
+                  scale: 1,
+                  transition: { duration: 2.8, ease: [0.16, 1, 0.3, 1] }
+                }
+              }}
+              className="inline-block"
+            >
+              {char}
+            </motion.span>
+          ))}
         </motion.h1>
       </div>
 
