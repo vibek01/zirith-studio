@@ -47,8 +47,18 @@ export default function HeroOrb({ mouseRef }: HeroOrbProps) {
     const clickBurst = Math.max(0, Math.sin(Math.min(clickElapsed * 2.5, Math.PI)))
 
     if (orbRef.current && materialRef.current) {
+      // Entrance animation: wait for preloader (1.8s), then slide in from left
+      const entranceDelay = 1.8
+      let entranceOffset = 0
+      if (t < entranceDelay) {
+        entranceOffset = -2.5 // Start from the left (center of screen)
+      } else {
+        // Smoothly glide into position after preloader
+        entranceOffset = -2.5 * Math.exp(-(t - entranceDelay) * 2.0)
+      }
+
       // Smooth follow cursor, biased to the right
-      const targetX = mouse.x * 1.4 + 2.5
+      const targetX = mouse.x * 1.4 + 2.5 + entranceOffset
       const targetY = mouse.y * 0.9
       orbRef.current.position.x += (targetX - orbRef.current.position.x) * 0.04
       orbRef.current.position.y += (targetY - orbRef.current.position.y) * 0.04
