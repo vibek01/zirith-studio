@@ -89,23 +89,9 @@ export default function Services() {
                 </div>
 
                 {/* Description */}
-                <p className="font-sans font-light text-base text-graphite leading-relaxed mb-6">
+                <p className="font-sans font-light text-base text-graphite leading-relaxed">
                   {service.description}
                 </p>
-
-                {/* Arrow CTA */}
-                <motion.div
-                  className="flex items-center gap-2 font-sans text-sm font-medium"
-                  style={{ color: colors.accent }}
-                >
-                  <span>Learn more</span>
-                  <motion.span
-                    animate={{ x: hoveredIndex === i ? 4 : 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    →
-                  </motion.span>
-                </motion.div>
 
                 {/* Bottom accent line */}
                 <motion.div

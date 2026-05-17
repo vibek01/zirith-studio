@@ -283,7 +283,7 @@ export default function Investment({ onBookingOpen }: InvestmentProps) {
 
   return (
     <section
-      id="investment"
+      id="pricing"
       ref={sectionRef}
       className="py-28 md:py-40 overflow-hidden"
       style={{ background: 'var(--color-bg)' }}
