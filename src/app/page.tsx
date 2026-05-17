@@ -8,6 +8,7 @@ import BentoGrid from '@/components/sections/BentoGrid'
 import ValueProp from '@/components/sections/ValueProp'
 import Services from '@/components/sections/Services'
 import Footer from '@/components/sections/Footer'
+import Investment from '@/components/sections/Investment'
 import FloatingCTA from '@/components/ui/FloatingCTA'
 import BookingModal from '@/components/ui/BookingModal'
 
@@ -25,6 +26,7 @@ export default function HomePage() {
       <BentoGrid />
       <ValueProp />
       <Services />
+      <Investment onBookingOpen={openModal} />
       <Footer onBookingOpen={openModal} />
 
       {/* Floating CTA — appears after scrolling */}

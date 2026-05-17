@@ -43,26 +43,28 @@ function BentoCell({
 
   return (
     <ScrollReveal delay={delay} className={wrapperClass}>
-      <div
-        className={`rounded-2xl border border-border p-6 h-full ${innerClass}`}
+      <motion.div
+        whileHover={{ y: -4, boxShadow: '0 12px 40px rgba(10, 74, 235, 0.08)' }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
+        className={`rounded-2xl border border-border p-6 h-full bg-surface transition-colors ${innerClass}`}
         style={{
           boxShadow: '0 1px 3px rgba(26,26,24,0.04), 0 4px 20px rgba(26,26,24,0.03)',
           ...style,
         }}
       >
         {children}
-      </div>
+      </motion.div>
     </ScrollReveal>
   )
 }
 
-function MetricPill({ value, label }: { value: React.ReactNode; label: string }) {
+function MetricPill({ value, label, muted = false }: { value: React.ReactNode; label: string; muted?: boolean }) {
   return (
     <div
-      className="rounded-xl p-3 border border-accent/15"
-      style={{ background: colors.accentSubtle }}
+      className={`rounded-xl p-3 border ${muted ? 'border-border' : 'border-accent/15'}`}
+      style={{ background: muted ? 'rgba(255,255,255,0.4)' : colors.accentSubtle }}
     >
-      <p className="font-mono text-xl font-medium text-carbon leading-none mb-1">{value}</p>
+      <p className={`font-mono text-xl font-medium leading-none mb-1 ${muted ? 'text-graphite' : 'text-carbon'}`}>{value}</p>
       <p className="text-xs text-graphite font-sans">{label}</p>
     </div>
   )
@@ -90,32 +92,46 @@ export default function BentoGrid() {
         </div>
 
         {/* ── Row 1 ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           {/* Status Quo card */}
-          <BentoCell delay={0} className="bg-surface lg:col-span-1">
-            <div className="opacity-60">
+          <BentoCell delay={0} className="bg-surface">
+            <div className="opacity-90">
               <div className="label mb-4 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-warm-grey inline-block" />
+                <span className="w-2 h-2 rounded-full bg-graphite inline-block" />
                 Without Zirith
               </div>
-              <p className="font-mono text-3xl font-medium text-warm-grey mb-1">34s</p>
-              <p className="font-sans text-xs text-warm-grey mb-5">Avg. watch time</p>
-              <AnimatedLineChart
-                points={statusQuoPoints}
-                muted
-                label="Engagement over time"
-                width={240}
-                height={72}
-              />
-              <div className="mt-5 grid grid-cols-2 gap-2">
-                <div className="rounded-xl bg-surface-2 p-3">
-                  <p className="font-mono text-lg font-medium text-warm-grey">0.4%</p>
-                  <p className="text-xs text-warm-grey font-sans mt-0.5">Demo conversion</p>
+
+              {/* Big headline metric */}
+              <div className="mb-5">
+                <p className="font-mono text-5xl font-medium text-graphite leading-none mb-1">
+                  18%
+                </p>
+                <p className="font-sans text-sm text-graphite">Completion rate</p>
+              </div>
+
+              {/* Chart — responsive width */}
+              <div className="mb-5 w-full">
+                <p className="label mb-2" style={{ color: '#6B6B66' }}>Engagement trajectory</p>
+                <div className="w-full overflow-hidden">
+                  <AnimatedLineChart
+                    points={statusQuoPoints}
+                    muted
+                    width={400}
+                    height={80}
+                  />
                 </div>
-                <div className="rounded-xl bg-surface-2 p-3">
-                  <p className="font-mono text-lg font-medium text-warm-grey">18%</p>
-                  <p className="text-xs text-warm-grey font-sans mt-0.5">Completion rate</p>
+              </div>
+
+              {/* Three metric pills */}
+              <div className="flex flex-wrap gap-3">
+                <div className="flex-1 min-w-[120px]">
+                  <MetricPill value="1.0×" label="Pipeline velocity" muted />
+                </div>
+                <div className="flex-1 min-w-[120px]">
+                  <MetricPill value="0.4%" label="Demo conversions" muted />
+                </div>
+                <div className="flex-1 min-w-[120px]">
+                  <MetricPill value="34s" label="Avg. watch time" muted />
                 </div>
               </div>
             </div>
@@ -124,7 +140,6 @@ export default function BentoGrid() {
           {/* With Zirith — impact hero card */}
           <BentoCell
             delay={0.1}
-            className="lg:col-span-2"
             style={{ background: colors.gradientCard }}
           >
             <div className="label mb-4 flex items-center gap-2">
@@ -175,84 +190,52 @@ export default function BentoGrid() {
         </div>
 
         {/* ── Row 2 ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-
-          {/* Testimonial card — dark */}
-          <BentoCell
-            delay={0.2}
-            className="lg:col-span-1 border-accent/25"
-            style={{ backgroundColor: colors.darkCard }}
-          >
-            {/* Stars */}
-            <div className="flex gap-0.5 mb-5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <span key={i} className="text-sm" style={{ color: colors.accent }}>★</span>
-              ))}
-            </div>
-
-            {/* Quote */}
-            <p className="font-serif-alt text-base leading-relaxed mb-8 text-[#F0EBE3]/90">
-              &ldquo;Zirith&rsquo;s video tripled our demo request rate within two weeks.&rdquo;
-            </p>
-
-            {/* Attribution */}
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: colors.accentSubtle }}>
-                <span className="font-sans text-xs font-semibold" style={{ color: colors.accentLight }}>SK</span>
-              </div>
-              <div>
-                <p className="font-sans text-xs font-semibold text-[#F0EBE3]/90">
-                  Sarah K.
-                </p>
-                <p className="font-sans text-xs text-[#F0EBE3]/50">
-                  Head of Growth, Loom
-                </p>
-              </div>
-            </div>
-          </BentoCell>
-
+        <div className="grid grid-cols-1 gap-4">
           {/* Retention curves — shared Y domain (0–100) */}
-          <BentoCell delay={0.15} className="lg:col-span-2 bg-surface">
+          <BentoCell delay={0.15} className="bg-surface">
             <p className="label mb-5">Viewer retention curves</p>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <p className="font-sans text-xs text-warm-grey mb-3 font-medium">
+                <p className="font-sans text-sm text-warm-grey mb-3 font-medium">
                   Industry avg. — steep drop
                 </p>
-                <AnimatedLineChart
-                  points={retentionIndustry}
-                  muted
-                  width={220}
-                  height={90}
-                  yMin={0}
-                  yMax={100}
-                />
+                <div className="w-full overflow-hidden">
+                  <AnimatedLineChart
+                    points={retentionIndustry}
+                    muted
+                    width={500}
+                    height={120}
+                    yMin={0}
+                    yMax={100}
+                  />
+                </div>
                 <p className="font-mono text-xs text-warm-grey mt-2">
                   Drops to ~4% by end
                 </p>
               </div>
               <div>
                 <p
-                  className="font-sans text-xs mb-3 font-medium"
+                  className="font-sans text-sm mb-3 font-medium"
                   style={{ color: colors.accent }}
                 >
                   Zirith videos — stays high
                 </p>
-                <AnimatedLineChart
-                  points={retentionZirith}
-                  color={colors.accent}
-                  width={220}
-                  height={90}
-                  yMin={0}
-                  yMax={100}
-                />
+                <div className="w-full overflow-hidden">
+                  <AnimatedLineChart
+                    points={retentionZirith}
+                    color={colors.accent}
+                    width={500}
+                    height={120}
+                    yMin={0}
+                    yMax={100}
+                  />
+                </div>
                 <p className="font-mono text-xs text-accent mt-2">
                   Holds at 82% through the end
                 </p>
               </div>
             </div>
           </BentoCell>
-
         </div>
       </div>
     </section>

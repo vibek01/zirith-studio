@@ -176,7 +176,7 @@ export default function Hero({ onBookingOpen }: HeroProps) {
                 onBookingOpen()
               }}
             >
-              Book a Slot
+              Book a Meeting
             </MagneticButton>
             <a
               href="#bento"

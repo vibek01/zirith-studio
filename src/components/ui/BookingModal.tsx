@@ -183,7 +183,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 </motion.div>
               ) : (
                 <div className="flex-1 flex flex-col">
-                  <h3 className="font-serif text-2xl text-carbon mb-2">Book your slot</h3>
+                  <h3 className="font-serif text-2xl text-carbon mb-2">Book your meeting</h3>
                   <p className="font-sans font-light text-sm text-graphite mb-8">
                     Let&rsquo;s get acquainted. All times in IST.
                   </p>

@@ -64,7 +64,7 @@ export default function Navbar({ onBookingOpen }: NavbarProps) {
             variant="outline"
             onClick={onBookingOpen}
           >
-            Book a Slot
+            Book a Meeting
           </MagneticButton>
         </div>
 
@@ -108,7 +108,7 @@ export default function Navbar({ onBookingOpen }: NavbarProps) {
             </a>
           ))}
           <MagneticButton variant="accent" onClick={() => { onBookingOpen(); setMenuOpen(false) }}>
-            Book a Slot
+            Book a Meeting
           </MagneticButton>
         </div>
       </motion.div>

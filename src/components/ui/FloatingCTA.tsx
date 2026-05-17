@@ -61,7 +61,7 @@ export default function FloatingCTA({ onOpen, isModalOpen }: FloatingCTAProps) {
               className="font-sans font-medium text-sm"
               style={{ color: '#1A1A18', letterSpacing: '0.01em' }}
             >
-              Book a Slot
+              Book a Meeting
             </span>
 
             <motion.span

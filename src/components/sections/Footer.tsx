@@ -21,7 +21,7 @@ export default function Footer({ onBookingOpen }: FooterProps) {
               <span className="italic text-accent">that compels.</span>
             </h2>
             <MagneticButton id="footer-cta" variant="accent" onClick={onBookingOpen}>
-              Book a Strategy Slot
+              Book a Strategy Meeting
             </MagneticButton>
           </div>
         </ScrollReveal>
@@ -53,16 +53,15 @@ export default function Footer({ onBookingOpen }: FooterProps) {
           {/* Social */}
           <div className="flex flex-col gap-3">
             <p className="label mb-1">Connect</p>
-            {['LinkedIn', 'Twitter / X', 'Dribbble', 'Behance'].map((social) => (
-              <a
-                key={social}
-                href="#"
-                className="font-sans text-sm text-graphite hover:text-accent transition-colors duration-200 inline-flex items-center gap-2 group"
-              >
-                {social}
-                <span className="w-3 h-px bg-graphite group-hover:w-5 group-hover:bg-accent transition-all duration-300" />
-              </a>
-            ))}
+            <a
+              href="https://www.linkedin.com/company/zirith-studio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-sm text-graphite hover:text-accent transition-colors duration-200 inline-flex items-center gap-2 group"
+            >
+              LinkedIn
+              <span className="w-3 h-px bg-graphite group-hover:w-5 group-hover:bg-accent transition-all duration-300" />
+            </a>
           </div>
         </div>
 
