@@ -120,7 +120,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               className="hidden md:flex flex-col justify-between w-[38%] p-10 flex-shrink-0"
               style={{
                 background: 'linear-gradient(160deg, #1A1A18 0%, #2C2820 100%)',
-                borderRight: '1px solid rgba(184,151,90,0.15)',
+                borderRight: '1px solid rgba(10, 74, 235, 0.15)',
               }}
             >
               <div>
@@ -166,7 +166,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   className="flex-1 flex flex-col items-center justify-center text-center"
                 >
                   <div className="w-16 h-16 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center mb-6">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8975A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A4AEB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M20 6L9 17l-5-5"/>
                     </svg>
                   </div>
@@ -242,7 +242,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                                   : 'border-border bg-surface-2 text-graphite hover:border-accent/20'
                                 }
                               `}
-                              style={formData.selectedDay === label ? { background: 'rgba(184,151,90,0.08)', borderColor: '#B8975A' } : {}}
+                              style={formData.selectedDay === label ? { background: 'rgba(10, 74, 235, 0.08)', borderColor: '#0A4AEB' } : {}}
                             >
                               {label}
                             </button>
@@ -266,7 +266,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                                 : 'border-border bg-surface-2 text-graphite hover:border-accent/20'
                               }
                             `}
-                            style={formData.selectedTime === slot ? { background: 'rgba(184,151,90,0.08)', borderColor: '#B8975A' } : {}}
+                            style={formData.selectedTime === slot ? { background: 'rgba(10, 74, 235, 0.08)', borderColor: '#0A4AEB' } : {}}
                           >
                             {slot}
                           </button>
@@ -282,8 +282,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       whileTap={{ scale: 0.98 }}
                       className="w-full py-4 rounded-2xl font-sans font-medium text-sm text-surface transition-all duration-200"
                       style={{
-                        background: 'linear-gradient(135deg, #B8975A 0%, #D4B880 100%)',
-                        boxShadow: '0 4px 20px rgba(184,151,90,0.3)',
+                        background: 'linear-gradient(135deg, #0A4AEB 0%, #3B7AFF 100%)',
+                        boxShadow: '0 4px 20px rgba(10, 74, 235, 0.35)',
                       }}
                     >
                       Book Strategy Call →
