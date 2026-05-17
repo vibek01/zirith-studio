@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import TextReveal from '@/components/ui/TextReveal'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import { SERVICES } from '@/lib/constants'
+import { colors } from '@/lib/colors'
 
 const serviceIcons = [
   // Monitor play icon
@@ -43,13 +44,13 @@ export default function Services() {
                 className="relative rounded-2xl p-8 border cursor-default overflow-hidden"
                 style={{
                   borderColor: hoveredIndex === i
-                    ? 'rgba(184,151,90,0.3)'
+                    ? colors.accentGlow
                     : 'rgba(26,26,24,0.07)',
                   background: hoveredIndex === i
-                    ? 'linear-gradient(145deg, #FAFAF8 0%, rgba(184,151,90,0.04) 100%)'
-                    : '#FAFAF8',
+                    ? colors.gradientCard
+                    : colors.white,
                   boxShadow: hoveredIndex === i
-                    ? '0 4px 32px rgba(184,151,90,0.08)'
+                    ? `0 4px 32px ${colors.accentGlow}`
                     : '0 1px 3px rgba(26,26,24,0.04)',
                   transition: 'all 0.3s cubic-bezier(0.16,1,0.3,1)',
                 }}
@@ -61,9 +62,9 @@ export default function Services() {
                   <span
                     className="absolute top-6 right-6 font-sans text-xs font-medium px-2.5 py-1 rounded-full"
                     style={{
-                      background: 'rgba(184,151,90,0.1)',
-                      color: '#B8975A',
-                      border: '1px solid rgba(184,151,90,0.2)',
+                      background: colors.accentSubtle,
+                      color: colors.accent,
+                      border: `1px solid ${colors.accentSubtle}`,
                     }}
                   >
                     {service.tag}
@@ -73,7 +74,7 @@ export default function Services() {
                 {/* Icon */}
                 <motion.div
                   className="mb-6 text-graphite"
-                  animate={{ color: hoveredIndex === i ? '#B8975A' : '#6B6B66' }}
+                  animate={{ color: hoveredIndex === i ? colors.accent : colors.graphite }}
                   transition={{ duration: 0.2 }}
                 >
                   {serviceIcons[i]}
@@ -95,7 +96,7 @@ export default function Services() {
                 {/* Arrow CTA */}
                 <motion.div
                   className="flex items-center gap-2 font-sans text-sm font-medium"
-                  style={{ color: '#B8975A' }}
+                  style={{ color: colors.accent }}
                 >
                   <span>Learn more</span>
                   <motion.span
@@ -106,10 +107,10 @@ export default function Services() {
                   </motion.span>
                 </motion.div>
 
-                {/* Bottom bronze line */}
+                {/* Bottom accent line */}
                 <motion.div
                   className="absolute bottom-0 left-0 h-0.5 origin-left"
-                  style={{ background: 'linear-gradient(90deg, #B8975A, #D4B880)' }}
+                  style={{ background: colors.gradientButtonHover }}
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: hoveredIndex === i ? 1 : 0 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}

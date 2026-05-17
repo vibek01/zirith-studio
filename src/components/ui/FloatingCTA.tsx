@@ -53,8 +53,8 @@ export default function FloatingCTA({ onOpen, isModalOpen }: FloatingCTAProps) {
           >
             {/* Pulse dot */}
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-bronze opacity-60" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-bronze" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-60" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
             </span>
 
             <span
@@ -65,7 +65,7 @@ export default function FloatingCTA({ onOpen, isModalOpen }: FloatingCTAProps) {
             </span>
 
             <motion.span
-              className="font-sans text-sm text-bronze"
+              className="font-sans text-sm text-accent"
               initial={{ x: 0 }}
               whileHover={{ x: 2 }}
               transition={{ duration: 0.15 }}

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import TextReveal from '@/components/ui/TextReveal'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import { VALUE_PILLARS } from '@/lib/constants'
+import { colors } from '@/lib/colors'
 
 export default function ValueProp() {
   const [hoveredIndex, setHoveredIndex] = useState<number>(0)
@@ -46,8 +47,8 @@ export default function ValueProp() {
                 tabIndex={0}
                 className="relative flex flex-col justify-between rounded-3xl p-8 cursor-pointer overflow-hidden border transition-colors duration-500"
                 style={{
-                  background: isHovered ? '#1A1A18' : 'rgba(235, 228, 216, 0.5)',
-                  borderColor: isHovered ? 'rgba(184, 151, 90, 0.3)' : 'rgba(26, 26, 24, 0.05)',
+                  background: isHovered ? colors.carbon : 'rgba(235, 228, 216, 0.5)',
+                  borderColor: isHovered ? colors.accentGlow : 'rgba(26, 26, 24, 0.05)',
                 }}
                 animate={{
                   flex: isHovered ? 3 : 1,
@@ -64,7 +65,7 @@ export default function ValueProp() {
                       transition={{ duration: 0.5 }}
                       className="absolute inset-0 z-0 pointer-events-none"
                       style={{
-                        background: 'radial-gradient(circle at 50% 0%, rgba(184,151,90,0.15) 0%, transparent 70%)',
+                        background: `radial-gradient(circle at 50% 0%, ${colors.accentGlow} 0%, transparent 70%)`,
                       }}
                     />
                   )}
@@ -74,7 +75,7 @@ export default function ValueProp() {
                 <div className="z-10 mb-8 md:mb-0">
                   <motion.span
                     className="font-mono text-sm font-medium tracking-widest"
-                    animate={{ color: isHovered ? '#D4B880' : '#B8975A' }}
+                    animate={{ color: isHovered ? colors.accentLight : colors.accent }}
                     transition={{ duration: 0.3 }}
                   >
                     {pillar.number}
@@ -86,7 +87,7 @@ export default function ValueProp() {
                   <motion.h3
                     className="font-serif-alt text-2xl md:text-3xl font-medium mb-4 transition-all duration-500"
                     animate={{
-                      color: isHovered ? '#FAFAF8' : '#1A1A18',
+                      color: isHovered ? colors.white : colors.carbon,
                     }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   >

@@ -7,7 +7,7 @@ import clsx from 'clsx'
 interface MagneticButtonProps {
   children: React.ReactNode
   onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void
-  variant?: 'bronze' | 'outline' | 'ghost'
+  variant?: 'accent' | 'outline' | 'ghost'
   className?: string
   id?: string
 }
@@ -33,13 +33,13 @@ export default function MagneticButton({
         'relative inline-flex items-center gap-2 px-7 py-3.5 rounded-full',
         'font-sans font-medium text-sm tracking-wide',
         'transition-all duration-300 cursor-pointer select-none',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bronze/50',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50',
         {
-          'bg-bronze text-surface hover:bg-bronze-dark shadow-lg shadow-bronze/20':
-            variant === 'bronze',
-          'border border-bronze/40 text-bronze hover:border-bronze hover:bg-bronze/5 backdrop-blur-sm':
+          'bg-accent text-surface hover:bg-accent-dark shadow-lg shadow-accent/20':
+            variant === 'accent',
+          'border border-accent/40 text-accent hover:border-accent hover:bg-accent/5 backdrop-blur-sm':
             variant === 'outline',
-          'text-carbon hover:text-bronze':
+          'text-carbon hover:text-accent':
             variant === 'ghost',
         },
         className

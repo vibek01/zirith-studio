@@ -99,21 +99,21 @@ export default function HeroOrb({ mouseRef }: HeroOrbProps) {
 
   return (
     <>
-      {/* Minimal lighting — no Environment map */}
-      <ambientLight intensity={1.1} color="#F5F0E8" />
-      <directionalLight position={[6, 6, 4]} intensity={2.2} color="#FFF8EC" />
-      <directionalLight position={[-4, -3, -5]} intensity={0.7} color="#E8DCC8" />
-      <pointLight position={[2, 2, 5]} intensity={1.0} color="#D4B880" decay={2} />
+      {/* Minimal lighting — cooler tones for blue theme */}
+      <ambientLight intensity={1.1} color="#E8EEF5" />
+      <directionalLight position={[6, 6, 4]} intensity={2.2} color="#ECF4FF" />
+      <directionalLight position={[-4, -3, -5]} intensity={0.7} color="#C8DCE8" />
+      <pointLight position={[2, 2, 5]} intensity={1.0} color="#0A4AEB" decay={2} />
 
       {/* Main orb — morphing metallic sphere */}
       <mesh ref={orbRef}>
         <sphereGeometry args={[2.6, 64, 64]} />
         <MeshDistortMaterial
           ref={materialRef}
-          color="#EEEAE2"
+          color="#E2E8EE"
           roughness={0.08}
           metalness={0.78}
-          emissive="#B8975A"
+          emissive="#0A4AEB"
           emissiveIntensity={0.06}
           distort={0.22}
           speed={1.0}
@@ -123,7 +123,7 @@ export default function HeroOrb({ mouseRef }: HeroOrbProps) {
       {/* Orbital particle field */}
       <instancedMesh ref={instancedRef} args={[undefined, undefined, PARTICLE_COUNT]}>
         <sphereGeometry args={[1, 6, 6]} />
-        <meshBasicMaterial color="#C4A870" transparent opacity={0.5} />
+        <meshBasicMaterial color="#3B7AFF" transparent opacity={0.5} />
       </instancedMesh>
     </>
   )

@@ -5,6 +5,7 @@ import AnimatedLineChart from '@/components/ui/AnimatedLineChart'
 import AnimatedCounter from '@/components/ui/AnimatedCounter'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import TextReveal from '@/components/ui/TextReveal'
+import { colors } from '@/lib/colors'
 
 // Flat, barely rising line for "status quo"
 const statusQuoPoints: [number, number][] = [
@@ -58,8 +59,8 @@ function BentoCell({
 function MetricPill({ value, label }: { value: React.ReactNode; label: string }) {
   return (
     <div
-      className="rounded-xl p-3 border border-bronze/15"
-      style={{ background: 'rgba(184,151,90,0.06)' }}
+      className="rounded-xl p-3 border border-accent/15"
+      style={{ background: colors.accentSubtle }}
     >
       <p className="font-mono text-xl font-medium text-carbon leading-none mb-1">{value}</p>
       <p className="text-xs text-graphite font-sans">{label}</p>
@@ -124,18 +125,16 @@ export default function BentoGrid() {
           <BentoCell
             delay={0.1}
             className="lg:col-span-2"
-            style={{
-              background: 'linear-gradient(135deg, #F0EBE3 0%, rgba(184,151,90,0.05) 100%)',
-            }}
+            style={{ background: colors.gradientCard }}
           >
             <div className="label mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-bronze inline-block animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-accent inline-block animate-pulse" />
               With Zirith
             </div>
 
             {/* Big headline metric */}
             <div className="mb-5">
-              <p className="font-mono text-5xl font-medium text-bronze leading-none mb-1">
+              <p className="font-mono text-5xl font-medium text-accent leading-none mb-1">
                 <AnimatedCounter to={82} suffix="%" duration={2.2} />
               </p>
               <p className="font-sans text-sm text-graphite">Completion rate</p>
@@ -147,7 +146,7 @@ export default function BentoGrid() {
               <div className="w-full overflow-hidden">
                 <AnimatedLineChart
                   points={impactPoints}
-                  color="#B8975A"
+                  color={colors.accent}
                   width={400}
                   height={80}
                 />
@@ -181,12 +180,13 @@ export default function BentoGrid() {
           {/* Testimonial card — dark */}
           <BentoCell
             delay={0.2}
-            className="lg:col-span-1 bg-[#26231D] border-[#B8975A]/25"
+            className="lg:col-span-1 border-accent/25"
+            style={{ backgroundColor: colors.darkCard }}
           >
             {/* Stars */}
             <div className="flex gap-0.5 mb-5">
               {Array.from({ length: 5 }).map((_, i) => (
-                <span key={i} className="text-[#B8975A] text-sm">★</span>
+                <span key={i} className="text-sm" style={{ color: colors.accent }}>★</span>
               ))}
             </div>
 
@@ -197,8 +197,8 @@ export default function BentoGrid() {
 
             {/* Attribution */}
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 bg-[#B8975A]/30">
-                <span className="font-sans text-xs font-semibold text-[#D4B880]">SK</span>
+              <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: colors.accentSubtle }}>
+                <span className="font-sans text-xs font-semibold" style={{ color: colors.accentLight }}>SK</span>
               </div>
               <div>
                 <p className="font-sans text-xs font-semibold text-[#F0EBE3]/90">
@@ -234,19 +234,19 @@ export default function BentoGrid() {
               <div>
                 <p
                   className="font-sans text-xs mb-3 font-medium"
-                  style={{ color: '#B8975A' }}
+                  style={{ color: colors.accent }}
                 >
                   Zirith videos — stays high
                 </p>
                 <AnimatedLineChart
                   points={retentionZirith}
-                  color="#B8975A"
+                  color={colors.accent}
                   width={220}
                   height={90}
                   yMin={0}
                   yMax={100}
                 />
-                <p className="font-mono text-xs text-bronze mt-2">
+                <p className="font-mono text-xs text-accent mt-2">
                   Holds at 82% through the end
                 </p>
               </div>

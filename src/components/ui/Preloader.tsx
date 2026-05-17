@@ -70,7 +70,7 @@ export default function Preloader() {
                 initial={{ y: '110%', rotate: 5, opacity: 0 }}
                 animate={{ y: 0, rotate: 0, opacity: 1 }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                className="font-serif text-[15vw] md:text-[10vw] leading-none tracking-tighter text-bronze"
+                className="font-serif text-[15vw] md:text-[10vw] leading-none tracking-tighter text-accent"
               >
                 ZIRITH
               </motion.h1>

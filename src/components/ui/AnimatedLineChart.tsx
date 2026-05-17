@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from '@/hooks/useInView'
+import { colors } from '@/lib/colors'
 
 interface AnimatedLineChartProps {
   points: [number, number][]
@@ -46,7 +47,7 @@ export default function AnimatedLineChart({
   points,
   width = 280,
   height = 80,
-  color = '#B8975A',
+  color = colors.accent,
   label,
   muted = false,
   yMin,
@@ -76,7 +77,7 @@ export default function AnimatedLineChart({
   return (
     <div className="relative">
       {label && (
-        <p className="label mb-2" style={{ color: muted ? '#A8A8A2' : '#6B6B66' }}>
+        <p className="label mb-2" style={{ color: muted ? colors.warmGrey : colors.graphite }}>
           {label}
         </p>
       )}
@@ -121,7 +122,7 @@ export default function AnimatedLineChart({
         {/* Animated line */}
         <motion.path
           d={path}
-          stroke={muted ? '#B8B3AA' : color}
+          stroke={muted ? colors.warmGrey : color}
           strokeWidth={2}
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -140,7 +141,7 @@ export default function AnimatedLineChart({
             cx={endCx}
             cy={endCy}
             r={4}
-            fill={muted ? '#B8B3AA' : color}
+            fill={muted ? colors.warmGrey : color}
             initial={{ scale: 0, opacity: 0 }}
             animate={inView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
             transition={{ delay: 1.8, duration: 0.4, ease: 'backOut' }}

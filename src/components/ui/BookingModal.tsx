@@ -71,7 +71,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
   const inputClass = `
     w-full bg-surface-2 border border-border rounded-xl px-4 py-3
     font-sans text-sm text-carbon placeholder-warm-grey
-    focus:outline-none focus:border-bronze/50 focus:ring-2 focus:ring-bronze/10
+    focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/10
     transition-all duration-200
   `
 
@@ -108,7 +108,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
             <button
               onClick={onClose}
               aria-label="Close modal"
-              className="absolute top-6 right-6 z-10 w-9 h-9 rounded-full flex items-center justify-center border border-border text-graphite hover:text-carbon hover:border-bronze/30 transition-all duration-200 bg-surface/50 backdrop-blur-md"
+              className="absolute top-6 right-6 z-10 w-9 h-9 rounded-full flex items-center justify-center border border-border text-graphite hover:text-carbon hover:border-accent/30 transition-all duration-200 bg-surface/50 backdrop-blur-md"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
@@ -128,7 +128,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 <p className="label text-surface/30 mb-12">Studio</p>
                 <h3 className="font-serif text-3xl text-surface leading-tight mb-4">
                   Let&rsquo;s build something<br />
-                  <span className="italic text-bronze">that converts.</span>
+                  <span className="italic text-accent">that converts.</span>
                 </h3>
                 <p className="font-sans font-light text-sm text-surface/60 leading-relaxed">
                   Book a 30-minute strategy call. We&rsquo;ll audit your current video presence and share exactly what we&rsquo;d do differently.
@@ -139,14 +139,14 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               <div className="rounded-2xl p-5 border border-white/10 bg-white/5">
                 <div className="flex gap-0.5 mb-3">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} className="text-bronze text-sm">★</span>
+                    <span key={i} className="text-accent text-sm">★</span>
                   ))}
                 </div>
                 <p className="font-serif-alt text-sm text-surface/80 leading-relaxed mb-4">
                   &ldquo;Within 2 weeks of our Zirith video going live, demo requests tripled.&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-bronze/20 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
                     <span className="text-xs font-medium text-champagne font-sans">SK</span>
                   </div>
                   <div>
@@ -165,7 +165,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex-1 flex flex-col items-center justify-center text-center"
                 >
-                  <div className="w-16 h-16 rounded-full bg-bronze/10 border border-bronze/30 flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center mb-6">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8975A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M20 6L9 17l-5-5"/>
                     </svg>
@@ -176,7 +176,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   </p>
                   <button
                     onClick={onClose}
-                    className="font-sans text-sm text-bronze hover:text-bronze-dark transition-colors duration-200"
+                    className="font-sans text-sm text-accent hover:text-accent-dark transition-colors duration-200"
                   >
                     Close window ↗
                   </button>
@@ -238,8 +238,8 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                               className={`
                                 flex-1 min-w-[80px] py-2.5 rounded-xl border text-xs font-sans transition-all duration-200 text-center
                                 ${formData.selectedDay === label
-                                  ? 'border-bronze text-carbon font-medium'
-                                  : 'border-border bg-surface-2 text-graphite hover:border-bronze/20'
+                                  ? 'border-accent text-carbon font-medium'
+                                  : 'border-border bg-surface-2 text-graphite hover:border-accent/20'
                                 }
                               `}
                               style={formData.selectedDay === label ? { background: 'rgba(184,151,90,0.08)', borderColor: '#B8975A' } : {}}
@@ -263,7 +263,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                               py-2.5 rounded-xl border text-xs font-sans transition-all duration-200
                               ${formData.selectedTime === slot
                                 ? 'text-carbon font-medium'
-                                : 'border-border bg-surface-2 text-graphite hover:border-bronze/20'
+                                : 'border-border bg-surface-2 text-graphite hover:border-accent/20'
                               }
                             `}
                             style={formData.selectedTime === slot ? { background: 'rgba(184,151,90,0.08)', borderColor: '#B8975A' } : {}}

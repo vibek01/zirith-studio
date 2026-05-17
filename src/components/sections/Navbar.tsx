@@ -51,7 +51,7 @@ export default function Navbar({ onBookingOpen }: NavbarProps) {
                 className="relative font-sans text-sm font-normal text-graphite hover:text-carbon transition-colors duration-200 group"
               >
                 {link.label}
-                <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-bronze transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
               </a>
             </li>
           ))}
@@ -107,7 +107,7 @@ export default function Navbar({ onBookingOpen }: NavbarProps) {
               {link.label}
             </a>
           ))}
-          <MagneticButton variant="bronze" onClick={() => { onBookingOpen(); setMenuOpen(false) }}>
+          <MagneticButton variant="accent" onClick={() => { onBookingOpen(); setMenuOpen(false) }}>
             Book a Slot
           </MagneticButton>
         </div>

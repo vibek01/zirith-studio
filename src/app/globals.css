@@ -6,15 +6,15 @@
 
 /* ─── CSS Custom Properties ──────────────────────────────────── */
 :root {
-  --color-bg: #DFD5C5;
-  --color-surface: #EBE4D8;
-  --color-surface-2: #D3C9B8;
+  --color-bg: #E8EFF5;
+  --color-surface: #F2F6FA;
+  --color-surface-2: #DCE4EE;
   --color-carbon: #1A1A18;
   --color-graphite: #6B6B66;
   --color-warm-grey: #A8A8A2;
-  --color-bronze: #B8975A;
-  --color-champagne: #D4B880;
-  --color-bronze-dark: #8A6F3A;
+  --color-accent: #0A4AEB;
+  --color-champagne: #3B7AFF;
+  --color-accent-dark: #062B99;
   --color-border: rgba(26, 26, 24, 0.07);
   --color-frosted: rgba(250, 250, 248, 0.72);
 
@@ -52,7 +52,7 @@ body {
 
 /* ─── Selection ───────────────────────────────────────────────── */
 ::selection {
-  background-color: var(--color-bronze);
+  background-color: var(--color-accent);
   color: var(--color-surface);
 }
 
@@ -157,15 +157,15 @@ body {
 }
 
 /* ─── Bronze gradient utility ─────────────────────────────────── */
-.bronze-line {
+.accent-line {
   display: inline-block;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-bronze), transparent);
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
 }
 
 /* ─── Focus visible ───────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid var(--color-bronze);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
 }
 
@@ -190,7 +190,7 @@ canvas {
   background: linear-gradient(
     90deg,
     var(--color-carbon) 0%,
-    var(--color-bronze) 50%,
+    var(--color-accent) 50%,
     var(--color-carbon) 100%
   );
   background-size: 200% auto;

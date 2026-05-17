@@ -4,6 +4,7 @@ import { useRef, useState } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import { MeshTransmissionMaterial, Environment, Float } from '@react-three/drei'
 import * as THREE from 'three'
+import { colors } from '@/lib/colors'
 
 export default function CrystalGeo() {
   const meshRef = useRef<THREE.Mesh>(null)
@@ -34,22 +35,22 @@ export default function CrystalGeo() {
   return (
     <>
       {/* Lighting */}
-      <ambientLight intensity={0.5} color="#E8DCC8" />
+      <ambientLight intensity={0.5} color="#E8EEF5" />
       <directionalLight
         position={[5, 8, 5]}
         intensity={2.5}
-        color="#FFF8EC"
+        color="#ECF4FF"
         castShadow
       />
       <directionalLight
         position={[-4, -2, -4]}
         intensity={0.8}
-        color="#D4C8B8"
+        color="#C8DCE8"
       />
       <pointLight
         position={[0, 4, 2]}
         intensity={1.2}
-        color="#B8975A"
+        color={colors.accent}
         distance={10}
       />
 
@@ -82,8 +83,8 @@ export default function CrystalGeo() {
             distortion={0.15}
             distortionScale={0.4}
             temporalDistortion={0.08}
-            color="#F0EDE8"
-            attenuationColor="#D4B880"
+            color="#E2E8EE"
+            attenuationColor={colors.accentLight}
             attenuationDistance={2}
           />
         </mesh>
@@ -96,7 +97,7 @@ export default function CrystalGeo() {
           transmission={0.8}
           roughness={0.1}
           ior={1.4}
-          color="#E8DCC8"
+          color="#E2E8EE"
           thickness={0.8}
         />
       </mesh>

@@ -18,9 +18,9 @@ export default function Footer({ onBookingOpen }: FooterProps) {
             <p className="label mb-4">Ready to convert?</p>
             <h2 className="font-serif text-4xl md:text-5xl text-carbon mb-8 leading-tight">
               Let&rsquo;s build something<br />
-              <span className="italic text-bronze">that compels.</span>
+              <span className="italic text-accent">that compels.</span>
             </h2>
-            <MagneticButton id="footer-cta" variant="bronze" onClick={onBookingOpen}>
+            <MagneticButton id="footer-cta" variant="accent" onClick={onBookingOpen}>
               Book a Strategy Slot
             </MagneticButton>
           </div>
@@ -57,10 +57,10 @@ export default function Footer({ onBookingOpen }: FooterProps) {
               <a
                 key={social}
                 href="#"
-                className="font-sans text-sm text-graphite hover:text-bronze transition-colors duration-200 inline-flex items-center gap-2 group"
+                className="font-sans text-sm text-graphite hover:text-accent transition-colors duration-200 inline-flex items-center gap-2 group"
               >
                 {social}
-                <span className="w-3 h-px bg-graphite group-hover:w-5 group-hover:bg-bronze transition-all duration-300" />
+                <span className="w-3 h-px bg-graphite group-hover:w-5 group-hover:bg-accent transition-all duration-300" />
               </a>
             ))}
           </div>

@@ -4,6 +4,7 @@ import { useRef, useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import MagneticButton from '@/components/ui/MagneticButton'
+import { colors } from '@/lib/colors'
 
 const PrismScene = dynamic(() => import('@/components/three/PrismScene'), {
   ssr: false,
@@ -76,7 +77,7 @@ export default function Hero({ onBookingOpen }: HeroProps) {
         className="absolute inset-0 z-10 pointer-events-none"
         style={{
           background:
-            'linear-gradient(100deg, rgba(245,244,240,0.97) 0%, rgba(245,244,240,0.88) 38%, rgba(245,244,240,0.45) 62%, transparent 80%)',
+            'linear-gradient(100deg, rgba(232,239,245,0.97) 0%, rgba(232,239,245,0.88) 38%, rgba(232,239,245,0.45) 62%, transparent 80%)',
         }}
       />
 
@@ -85,7 +86,7 @@ export default function Hero({ onBookingOpen }: HeroProps) {
         className="absolute inset-0 z-10 pointer-events-none"
         style={{
           background:
-            'linear-gradient(to bottom, rgba(245,244,240,0.6) 0%, transparent 20%, transparent 80%, rgba(245,244,240,0.6) 100%)',
+            'linear-gradient(to bottom, rgba(232,239,245,0.6) 0%, transparent 20%, transparent 80%, rgba(232,239,245,0.6) 100%)',
         }}
       />
 
@@ -139,13 +140,6 @@ export default function Hero({ onBookingOpen }: HeroProps) {
           className="max-w-[580px]"
           style={{ pointerEvents: 'auto' }}
         >
-          {/* Eyebrow */}
-          <motion.div variants={item} className="mb-8">
-            <span className="label">
-              Elite Motion Studio
-              <span className="inline-block ml-3 w-8 h-px bg-bronze align-middle" />
-            </span>
-          </motion.div>
 
           {/* Headline */}
           <motion.h1
@@ -154,7 +148,7 @@ export default function Hero({ onBookingOpen }: HeroProps) {
           >
             Motion that
             <br />
-            <em className="not-italic italic" style={{ color: '#1A1A18' }}>
+            <em className="not-italic italic" style={{ color: colors.accent }}>
               converts.
             </em>
           </motion.h1>
@@ -176,7 +170,7 @@ export default function Hero({ onBookingOpen }: HeroProps) {
           >
             <MagneticButton
               id="hero-cta-primary"
-              variant="bronze"
+              variant="accent"
               onClick={(e) => {
                 e?.stopPropagation()
                 onBookingOpen()
@@ -200,7 +194,7 @@ export default function Hero({ onBookingOpen }: HeroProps) {
             className="mt-14 flex items-center gap-4 text-sm text-warm-grey font-sans"
           >
             <div className="flex -space-x-2">
-              {['#C4A882', '#8A7A6E', '#A09080', '#D4B880'].map((color, i) => (
+              {[colors.accentLight, colors.warmGrey, colors.graphite, colors.accent].map((color, i) => (
                 <div
                   key={i}
                   className="w-8 h-8 rounded-full border-2 border-bg"
@@ -214,14 +208,6 @@ export default function Hero({ onBookingOpen }: HeroProps) {
             </p>
           </motion.div>
 
-          {/* Click hint */}
-          <motion.p
-            variants={item}
-            className="mt-6 font-sans text-xs text-warm-grey/70"
-            style={{ letterSpacing: '0.08em' }}
-          >
-            ✦ Click anywhere to interact
-          </motion.p>
         </motion.div>
       </div>
 
@@ -236,7 +222,7 @@ export default function Hero({ onBookingOpen }: HeroProps) {
         </span>
         <div className="relative h-10 w-px bg-border">
           <motion.div
-            className="absolute top-0 left-0 w-full bg-bronze"
+            className="absolute top-0 left-0 w-full bg-accent"
             animate={{ height: ['0%', '100%', '0%'], top: ['0%', '0%', '100%'] }}
             transition={{ duration: 2, ease: 'easeInOut', repeat: Infinity, repeatDelay: 0.5 }}
           />
