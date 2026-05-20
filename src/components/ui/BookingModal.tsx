@@ -33,7 +33,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
         },
         hideEventTypeDetails: true,
         showTimezoneWhenEventDetailsHidden: true,
-      });
+      } as any);
     })();
   }, []);
 
