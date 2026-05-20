@@ -80,7 +80,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               className="absolute top-6 right-6 z-10 w-9 h-9 rounded-full flex items-center justify-center border border-border text-graphite hover:text-carbon hover:border-accent/30 transition-all duration-200 bg-surface/50 backdrop-blur-md"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             </button>
 
@@ -111,7 +111,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 <Cal
                   calLink="zirith-studio/30min"
                   style={{ width: '100%', height: '100%', minHeight: '580px', border: 'none' }}
-                  config={{ 
+                  config={{
                     layout: 'month_view',
                     theme: 'light'
                   }}
