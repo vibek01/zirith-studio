@@ -309,7 +309,6 @@ function VideoCard({
         </motion.div>
 
         {/* Badges */}
-        <IndexBadge index={index} />
         {isFeatured && <FeaturedBadge />}
         <PlayRing visible={isPlaying && !isHovered} />
       </div>

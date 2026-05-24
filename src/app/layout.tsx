@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: 'Zirith Studio — Motion Design That Converts',
   description: 'We engineer SaaS explainers, B2B marketing campaigns, and VSLs that don\'t just explain — they compel. Elite motion design with behavioral pacing.',
   keywords: 'SaaS motion design, product explainer videos, VSL, B2B video marketing, motion graphics studio',
+  icons: {
+    icon: '/zirithLogo.jpeg',
+    shortcut: '/zirithLogo.jpeg',
+    apple: '/zirithLogo.jpeg',
+  },
   openGraph: {
     title: 'Zirith Studio — Motion Design That Converts',
     description: 'Elite motion design studio for SaaS companies. We combine behavioral pacing with premium motion graphics to drive real conversions.',
