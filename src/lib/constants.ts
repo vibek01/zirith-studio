@@ -1,7 +1,7 @@
 // Site-wide constants and data
 
 export const NAV_LINKS = [
-  { label: 'Work', href: '#bento' },
+  { label: 'Work', href: '/work' },
   { label: 'Services', href: '#services' },
   { label: 'About', href: '#value-prop' },
   { label: 'Pricing', href: '#pricing' },

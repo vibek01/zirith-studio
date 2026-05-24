@@ -33,26 +33,27 @@ export default function Navbar({ onBookingOpen }: NavbarProps) {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <motion.a
-          href="#"
-          className="font-serif text-xl tracking-tight text-carbon select-none"
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
-        >
-          ZIRITH
-        </motion.a>
+        <Link href="/">
+          <motion.span
+            className="font-serif text-xl tracking-tight text-carbon select-none cursor-pointer"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+          >
+            ZIRITH
+          </motion.span>
+        </Link>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a
+              <Link
                 href={link.href}
                 className="relative font-sans text-sm font-normal text-graphite hover:text-carbon transition-colors duration-200 group"
               >
                 {link.label}
                 <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -98,14 +99,14 @@ export default function Navbar({ onBookingOpen }: NavbarProps) {
       >
         <div className="px-6 py-6 flex flex-col gap-5">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className="font-sans text-base font-normal text-carbon border-b border-border pb-4"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <MagneticButton variant="accent" onClick={() => { onBookingOpen(); setMenuOpen(false) }}>
             Book a Meeting

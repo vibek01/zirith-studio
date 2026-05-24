@@ -5,6 +5,7 @@ import Navbar from '@/components/sections/Navbar'
 import Hero from '@/components/sections/Hero'
 import TrustMarquee from '@/components/sections/TrustMarquee'
 import BentoGrid from '@/components/sections/BentoGrid'
+import WorkShowcase from '@/components/sections/WorkShowcase'
 import ValueProp from '@/components/sections/ValueProp'
 import Services from '@/components/sections/Services'
 import Footer from '@/components/sections/Footer'
@@ -23,6 +24,7 @@ export default function HomePage() {
       <Navbar onBookingOpen={openModal} />
       <Hero onBookingOpen={openModal} />
       <TrustMarquee />
+      <WorkShowcase />
       <BentoGrid />
       <ValueProp />
       <Services />
