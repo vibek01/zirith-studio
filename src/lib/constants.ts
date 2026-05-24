@@ -5,6 +5,7 @@ export const NAV_LINKS = [
   { label: 'Services', href: '#services' },
   { label: 'About', href: '#value-prop' },
   { label: 'Pricing', href: '#pricing' },
+  { label: 'Payment', href: '/payment' },
 ]
 
 export const TRUST_LOGOS = [

@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Navbar from '@/components/sections/Navbar'
 import Hero from '@/components/sections/Hero'
-
 import BentoGrid from '@/components/sections/BentoGrid'
 import WorkShowcase from '@/components/sections/WorkShowcase'
 import ValueProp from '@/components/sections/ValueProp'
@@ -23,7 +22,6 @@ export default function HomePage() {
     <main>
       <Navbar onBookingOpen={openModal} />
       <Hero onBookingOpen={openModal} />
-
       <WorkShowcase />
       <BentoGrid />
       <ValueProp />
