@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Navbar from '@/components/sections/Navbar'
 import ValueProp from '@/components/sections/ValueProp'
+import Services from '@/components/sections/Services'
 import Footer from '@/components/sections/Footer'
 import FloatingCTA from '@/components/ui/FloatingCTA'
 import BookingModal from '@/components/ui/BookingModal'
@@ -18,6 +19,7 @@ export default function AboutPage() {
       <Navbar onBookingOpen={openModal} />
       <div className="pt-20">
         <ValueProp />
+        <Services />
       </div>
       <Footer onBookingOpen={openModal} />
 
