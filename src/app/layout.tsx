@@ -4,9 +4,16 @@ import './globals.css'
 import LenisProvider from '@/components/ui/LenisProvider'
 
 export const metadata: Metadata = {
-  title: 'Zirith Studio — Motion Design That Converts',
+  metadataBase: new URL('https://zirith.in'),
+  title: {
+    default: 'Zirith Studio — Motion Design That Converts',
+    template: '%s | Zirith Studio',
+  },
   description: 'We engineer SaaS explainers, B2B marketing campaigns, and VSLs that don\'t just explain — they compel. Elite motion design with behavioral pacing.',
   keywords: 'SaaS motion design, product explainer videos, VSL, B2B video marketing, motion graphics studio',
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     icon: '/zirithLogo.jpeg',
     shortcut: '/zirithLogo.jpeg',
@@ -17,6 +24,22 @@ export const metadata: Metadata = {
     description: 'Elite motion design studio for SaaS companies. We combine behavioral pacing with premium motion graphics to drive real conversions.',
     type: 'website',
     locale: 'en_US',
+    url: 'https://zirith.in',
+    siteName: 'Zirith Studio',
+    images: [
+      {
+        url: '/zirithLogo.jpeg',
+        width: 800,
+        height: 600,
+        alt: 'Zirith Studio Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zirith Studio — Motion Design That Converts',
+    description: 'Elite motion design studio for SaaS companies. We combine behavioral pacing with premium motion graphics to drive real conversions.',
+    images: ['/zirithLogo.jpeg'],
   },
   robots: {
     index: true,
@@ -40,6 +63,19 @@ export default function RootLayout({
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#F5F4F0" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Zirith Studio",
+              "url": "https://zirith.in",
+              "logo": "https://zirith.in/zirithLogo.jpeg",
+              "description": "Elite motion design studio for SaaS companies, specializing in product explainer videos and VSLs."
+            })
+          }}
+        />
       </head>
       <body className="noise">
         <LenisProvider>
