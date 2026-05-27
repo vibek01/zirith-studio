@@ -131,6 +131,7 @@ export default function PaymentPage() {
             <button
               onClick={() => handlePayment(300, 'Deposit ($300)')}
               disabled={loadingTier !== null}
+              data-umami-event="Purchase ($300 Deposit)"
               className="w-full py-4 rounded-xl text-white font-medium transition-all"
               style={{ background: colors.carbon, opacity: loadingTier === 'Deposit ($300)' ? 0.7 : 1 }}
             >
@@ -156,6 +157,7 @@ export default function PaymentPage() {
             <button
               onClick={() => handlePayment(2000, 'Standard Project ($2000)')}
               disabled={loadingTier !== null}
+              data-umami-event="Purchase ($2000 Standard)"
               className="w-full py-4 rounded-xl text-white font-medium transition-all"
               style={{ background: colors.accent, opacity: loadingTier === 'Standard Project ($2000)' ? 0.7 : 1 }}
             >
@@ -191,6 +193,7 @@ export default function PaymentPage() {
             <button
               onClick={() => handlePayment(parseFloat(customAmount) || 0, `Custom Invoice ($${customAmount})`)}
               disabled={loadingTier !== null || !customAmount}
+              data-umami-event="Purchase (Custom)"
               className="w-full py-4 rounded-xl text-white font-medium transition-all mt-auto"
               style={{ background: colors.carbon, opacity: (loadingTier === `Custom Invoice ($${customAmount})` || !customAmount) ? 0.7 : 1 }}
             >

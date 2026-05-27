@@ -63,6 +63,7 @@ export default function Navbar({ onBookingOpen }: NavbarProps) {
           <MagneticButton
             id="nav-cta"
             variant="outline"
+            data-umami-event="Book Meeting (Navbar Desktop)"
             onClick={onBookingOpen}
           >
             Book a Meeting
@@ -108,7 +109,7 @@ export default function Navbar({ onBookingOpen }: NavbarProps) {
               {link.label}
             </Link>
           ))}
-          <MagneticButton variant="accent" onClick={() => { onBookingOpen(); setMenuOpen(false) }}>
+          <MagneticButton variant="accent" data-umami-event="Book Meeting (Navbar Mobile)" onClick={() => { onBookingOpen(); setMenuOpen(false) }}>
             Book a Meeting
           </MagneticButton>
         </div>

@@ -4,12 +4,9 @@ import { motion, MotionValue } from 'framer-motion'
 import { useMagnetic } from '@/hooks/useMagnetic'
 import clsx from 'clsx'
 
-interface MagneticButtonProps {
+interface MagneticButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
-  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void
   variant?: 'accent' | 'outline' | 'ghost'
-  className?: string
-  id?: string
 }
 
 export default function MagneticButton({
@@ -18,6 +15,7 @@ export default function MagneticButton({
   variant = 'outline',
   className,
   id,
+  ...rest
 }: MagneticButtonProps) {
   const { ref, x, y, onMouseLeave } = useMagnetic(0.3, 100)
 
@@ -44,6 +42,7 @@ export default function MagneticButton({
         },
         className
       )}
+      {...rest}
     >
       {children}
       <motion.span

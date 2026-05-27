@@ -171,6 +171,7 @@ export default function Hero({ onBookingOpen }: HeroProps) {
             <MagneticButton
               id="hero-cta-primary"
               variant="accent"
+              data-umami-event="Book Meeting (Hero)"
               onClick={(e) => {
                 e?.stopPropagation()
                 onBookingOpen()

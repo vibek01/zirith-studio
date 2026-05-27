@@ -20,7 +20,7 @@ export default function Footer({ onBookingOpen }: FooterProps) {
               Let&rsquo;s build something<br />
               <span className="italic text-accent">that compels.</span>
             </h2>
-            <MagneticButton id="footer-cta" variant="accent" onClick={onBookingOpen}>
+            <MagneticButton id="footer-cta" variant="accent" data-umami-event="Book Meeting (Footer)" onClick={onBookingOpen}>
               Book a Strategy Meeting
             </MagneticButton>
           </div>

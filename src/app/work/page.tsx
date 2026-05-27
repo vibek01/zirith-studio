@@ -83,6 +83,7 @@ export default function WorkPage() {
               color: 'white',
               boxShadow: `0 4px 24px ${colors.accentGlow}`,
             }}
+            data-umami-event="Book Meeting (Work Page)"
           >
             Book a Strategy Meeting
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
