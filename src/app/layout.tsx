@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import './globals.css'
 import LenisProvider from '@/components/ui/LenisProvider'
 import Preloader from '@/components/ui/Preloader'
@@ -46,6 +47,11 @@ export default function RootLayout({
         <LenisProvider>
           {children}
         </LenisProvider>
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="3b4e40be-2f87-4f01-9580-3f67054f73ad"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   )
