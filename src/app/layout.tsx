@@ -63,21 +63,34 @@ export default function RootLayout({
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#F5F4F0" />
+      </head>
+      <body className="noise">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Zirith Studio",
-              "url": "https://zirith.in",
-              "logo": "https://zirith.in/zirithLogo.jpeg",
-              "description": "Elite motion design studio for SaaS companies, specializing in product explainer videos and VSLs."
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "name": "Zirith Studio",
+                  "url": "https://zirith.in/"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Zirith Studio",
+                  "url": "https://zirith.in",
+                  "logo": "https://zirith.in/zirithLogo.jpeg",
+                  "image": "https://zirith.in/zirithLogo.jpeg",
+                  "description": "Elite motion design studio for SaaS companies, specializing in product explainer videos and VSLs.",
+                  "sameAs": [
+                    "https://www.linkedin.com/company/zirith-studio/"
+                  ]
+                }
+              ]
             })
           }}
         />
-      </head>
-      <body className="noise">
         <LenisProvider>
           {children}
         </LenisProvider>
