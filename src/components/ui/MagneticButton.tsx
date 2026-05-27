@@ -1,10 +1,10 @@
 'use client'
 
-import { motion, MotionValue } from 'framer-motion'
+import { motion, HTMLMotionProps } from 'framer-motion'
 import { useMagnetic } from '@/hooks/useMagnetic'
 import clsx from 'clsx'
 
-interface MagneticButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface MagneticButtonProps extends HTMLMotionProps<"button"> {
   children: React.ReactNode
   variant?: 'accent' | 'outline' | 'ghost'
 }
