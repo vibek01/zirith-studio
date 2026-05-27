@@ -19,7 +19,7 @@ const container = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 2.4 },
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
   },
 }
 
@@ -105,7 +105,7 @@ export default function Hero({ onBookingOpen }: HeroProps) {
             hidden: { opacity: 0 },
             visible: { 
               opacity: 0.12,
-              transition: { staggerChildren: 0.14, delayChildren: 2.4 }
+              transition: { staggerChildren: 0.14, delayChildren: 0.2 }
             }
           }}
           className="font-serif text-[28vw] md:text-[22vw] leading-none text-carbon whitespace-nowrap tracking-tighter flex"

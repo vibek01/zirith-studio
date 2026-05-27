@@ -47,8 +47,8 @@ export default function HeroOrb({ mouseRef }: HeroOrbProps) {
     const clickBurst = Math.max(0, Math.sin(Math.min(clickElapsed * 2.5, Math.PI)))
 
     if (orbRef.current && materialRef.current) {
-      // Entrance animation: wait for preloader (1.8s), then slide in from left
-      const entranceDelay = 1.8
+      // Entrance animation: wait briefly (0.2s), then slide in from left
+      const entranceDelay = 0.2
       let entranceOffset = 0
       if (t < entranceDelay) {
         entranceOffset = -2.5 // Start from the left (center of screen)
