@@ -14,11 +14,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  icons: {
-    icon: '/zirithLogo.jpeg',
-    shortcut: '/zirithLogo.jpeg',
-    apple: '/zirithLogo.jpeg',
-  },
   openGraph: {
     title: 'Zirith Studio — Motion Design That Converts',
     description: 'Elite motion design studio for SaaS companies. We combine behavioral pacing with premium motion graphics to drive real conversions.',
