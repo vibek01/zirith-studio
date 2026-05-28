@@ -33,6 +33,13 @@ export default function Hero({ onBookingOpen }: HeroProps) {
   const mouseRef = useRef({ x: 0, y: 0, clicked: false })
   const [scrolled, setScrolled] = useState(false)
   const [ripple, setRipple] = useState(false)
+  const [mount3D, setMount3D] = useState(false)
+
+  useEffect(() => {
+    // Delay 3D initialization to allow text and critical layout to paint first
+    const timer = setTimeout(() => setMount3D(true), 600)
+    return () => clearTimeout(timer)
+  }, [])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80)
@@ -69,7 +76,7 @@ export default function Hero({ onBookingOpen }: HeroProps) {
         className="absolute inset-0 z-0"
         style={{ pointerEvents: 'none' }}
       >
-        <PrismScene mouseRef={mouseRef} />
+        {mount3D && <PrismScene mouseRef={mouseRef} />}
       </div>
 
       {/* ── Gradient mask — fades left edge so text is readable ──────── */}

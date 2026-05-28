@@ -209,11 +209,10 @@ function VideoCard({
         <motion.video
           ref={videoRef}
           src={item.src}
-          autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          preload="none"
           style={{
             width: '100%',
             height: '100%',

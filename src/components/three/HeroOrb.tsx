@@ -46,22 +46,27 @@ export default function HeroOrb({ mouseRef }: HeroOrbProps) {
     const clickElapsed = t - clickTime.current
     const clickBurst = Math.max(0, Math.sin(Math.min(clickElapsed * 2.5, Math.PI)))
 
-    if (orbRef.current && materialRef.current) {
-      // Entrance animation: wait briefly (0.2s), then slide in from left
-      const entranceDelay = 0.2
-      let entranceOffset = 0
-      if (t < entranceDelay) {
-        entranceOffset = -2.5 // Start from the left (center of screen)
-      } else {
-        // Smoothly glide into position after preloader
-        entranceOffset = -2.5 * Math.exp(-(t - entranceDelay) * 2.0)
-      }
+    // Entrance animation: wait briefly (0.2s), then slide in from left
+    const entranceDelay = 0.2
+    let entranceOffset = 0
+    let entranceScale = 0
+    if (t < entranceDelay) {
+      entranceOffset = -2.5 // Start from the left (center of screen)
+      entranceScale = 0.001
+    } else {
+      // Smoothly glide into position after preloader
+      const progress = t - entranceDelay
+      entranceOffset = -2.5 * Math.exp(-progress * 2.0)
+      entranceScale = 1.0 - Math.exp(-progress * 3.5)
+    }
 
+    if (orbRef.current && materialRef.current) {
       // Smooth follow cursor, biased to the right
       const targetX = mouse.x * 1.4 + 2.5 + entranceOffset
       const targetY = mouse.y * 0.9
       orbRef.current.position.x += (targetX - orbRef.current.position.x) * 0.04
       orbRef.current.position.y += (targetY - orbRef.current.position.y) * 0.04
+      orbRef.current.scale.setScalar(Math.max(0.001, entranceScale))
 
       // Slow organic rotation
       orbRef.current.rotation.y = t * 0.1 + mouse.x * 0.5
@@ -87,7 +92,7 @@ export default function HeroOrb({ mouseRef }: HeroOrbProps) {
         const x = r * Math.sin(p.phi) * Math.cos(angle)
         const y = r * Math.cos(p.phi) + Math.sin(t * 0.28 + p.phaseY) * 0.25
         const z = r * Math.sin(p.phi) * Math.sin(angle)
-        const s = p.size * (1 + clickBurst * 0.9)
+        const s = p.size * (1 + clickBurst * 0.9) * Math.max(0.001, entranceScale)
         dummy.position.set(x, y, z)
         dummy.scale.setScalar(s)
         dummy.updateMatrix()
