@@ -34,11 +34,21 @@ export default function Hero({ onBookingOpen }: HeroProps) {
   const [scrolled, setScrolled] = useState(false)
   const [ripple, setRipple] = useState(false)
   const [mount3D, setMount3D] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+
     // Delay 3D initialization to allow text and critical layout to paint first
     const timer = setTimeout(() => setMount3D(true), 600)
-    return () => clearTimeout(timer)
+    
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('resize', checkMobile)
+    }
   }, [])
 
   useEffect(() => {
@@ -76,7 +86,7 @@ export default function Hero({ onBookingOpen }: HeroProps) {
         className="absolute inset-0 z-0"
         style={{ pointerEvents: 'none' }}
       >
-        {mount3D && <PrismScene mouseRef={mouseRef} />}
+        {!isMobile && mount3D && <PrismScene mouseRef={mouseRef} />}
       </div>
 
       {/* ── Gradient mask — fades left edge so text is readable ──────── */}
